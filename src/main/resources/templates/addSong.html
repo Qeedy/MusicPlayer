@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+<title>Music Player</title>
+</head>
+<body class="jumbotron">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<h2 class="text-center">Add Song</h2>
+				<div class="list-group">
+					<form id="form" action="#" th:action="@{/addSong}" method="POST" enctype="multipart/form-data">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th scope="row">Song Name</th>
+									<td><input type="text" id="songName" name="songName" /></td>
+								</tr>
+								<tr>
+									<th scope="row">Musician</th>
+									<td><select id="musicianId" name="musicianId"
+										class="form-control">
+											<option th:each="musician : ${musicians}"
+												th:value="${musician.musicianId}" th:text="${musician.name}"></option>
+									</select></td>
+								</tr>
+								<tr>
+									<th scope="row">Upload Music File</th>
+									<td><input type="file" id="file" name="file" /></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><button class="btn btn-sm btn-primary" type="submit">Submit</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<a href="./" class="previous btn btn-dark pull-right">&laquo; Home</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
